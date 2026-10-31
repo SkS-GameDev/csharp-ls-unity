@@ -1,0 +1,18 @@
+{
+  "name": "csharp-ls-unity",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "csharp-ls-unity": "bin/csharp-ls-unity.js"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "description": "csharp-ls proxy that enables Unity analyzers for OpenCode",
+  "license": "MIT",
+  "files": [
+    "bin",
+    "README.md"
+  ]
+}
