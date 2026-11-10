@@ -1,25 +1,27 @@
 # csharp-ls-unity
 
-Небольшой stdio-прокси вокруг `csharp-ls`, который включает Unity-анализаторы.
+[Русская версия](README.ru.md)
 
-`csharp-ls` читает `csharp.analyzersEnabled` из `workspace/didChangeConfiguration` и
-`workspace/configuration`. OpenCode не отправляет ни то, ни другое, поэтому анализаторы
-остаются выключенными даже при установленном `Microsoft.Unity.Analyzers`. Прокси:
+A small stdio proxy around `csharp-ls` that enables the Unity analyzers.
 
-- запускает `csharp-ls` и прозрачно пересылает LSP-поток;
-- сразу после `initialized` отправляет `workspace/didChangeConfiguration` с
+`csharp-ls` reads `csharp.analyzersEnabled` from `workspace/didChangeConfiguration` and
+`workspace/configuration`. OpenCode sends neither, so the analyzers stay disabled even
+when `Microsoft.Unity.Analyzers` is installed. The proxy:
+
+- starts `csharp-ls` and transparently forwards the LSP stream;
+- right after `initialized` sends `workspace/didChangeConfiguration` with
   `{ "csharp": { "analyzersEnabled": true } }`;
-- сам отвечает на `workspace/configuration` для секции `csharp`;
-- остальные запросы сервера пересылает клиенту.
+- answers `workspace/configuration` itself for the `csharp` section;
+- forwards the server's remaining requests to the client.
 
-## Установка
+## Installation
 
 ```sh
 npm link
 ```
 
-`csharp-ls` должен быть в `PATH`. Бинарник переопределяется через `CSHARP_LS_BIN`,
-внедряемые настройки — через `CSHARP_LS_SETTINGS` (JSON).
+`csharp-ls` must be in `PATH`. The binary is overridden via `CSHARP_LS_BIN`,
+the injected settings — via `CSHARP_LS_SETTINGS` (JSON).
 
 ## OpenCode
 
@@ -32,11 +34,11 @@ npm link
 }
 ```
 
-## Тесты
+## Tests
 
 ```sh
 npm test
 ```
 
-Тест запускает прокси против `test/fixtures/fake-csharp-ls.mjs` и проверяет
-внедрённую конфигурацию, ответ на `workspace/configuration` и пересылку сообщений.
+The test runs the proxy against `test/fixtures/fake-csharp-ls.mjs` and checks the
+injected configuration, the reply to `workspace/configuration`, and message forwarding.
