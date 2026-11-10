@@ -17,11 +17,13 @@ when `Microsoft.Unity.Analyzers` is installed. The proxy:
 ## Installation
 
 ```sh
-npm link
+npm install -g csharp-ls-unity
 ```
 
 `csharp-ls` must be in `PATH`. The binary is overridden via `CSHARP_LS_BIN`,
 the injected settings — via `CSHARP_LS_SETTINGS` (JSON).
+
+From source: `npm link` in the repository.
 
 ## OpenCode
 

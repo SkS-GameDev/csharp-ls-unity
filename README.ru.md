@@ -17,11 +17,13 @@
 ## Установка
 
 ```sh
-npm link
+npm install -g csharp-ls-unity
 ```
 
 `csharp-ls` должен быть в `PATH`. Бинарник переопределяется через `CSHARP_LS_BIN`,
 внедряемые настройки — через `CSHARP_LS_SETTINGS` (JSON).
+
+Из исходников: `npm link` в репозитории.
 
 ## OpenCode
 
