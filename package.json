@@ -1,7 +1,6 @@
 {
   "name": "csharp-ls-unity",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
   "bin": {
     "csharp-ls-unity": "bin/csharp-ls-unity.js"
@@ -13,6 +12,7 @@
   "license": "MIT",
   "files": [
     "bin",
-    "README.md"
+    "README.md",
+    "README.ru.md"
   ]
 }
